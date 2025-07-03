@@ -49,6 +49,8 @@ echo "                                                    ";
 mysql -e "ALTER USER '$usernamemysql'@'localhost' IDENTIFIED WITH mysql_native_password BY '$passwordmysql';"
 mysql -u$usernamemysql -p$passwordmysql -e "GRANT ALL PRIVILEGES ON $usernamemysql.* TO '$usernamemysql'@'localhost';"
 mysql -u$usernamemysql -p$passwordmysql -e "CREATE DATABASE $databasename;"
+mysql -u$usernamemysql -p$passwordmysql -e "SHOW DATABASE;"
+mysql -u$usernamemysql -p$passwordmysql -e "EXIT;"
 echo "   ==============================================   ";
 #
 #
