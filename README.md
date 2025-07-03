@@ -43,7 +43,11 @@ define( 'FS_METHOD', 'direct' );
 
 Installing theme failed, add set time limit on `wp-config.php`
 ```
+/* Add any custom values between this line and the "stop editing" line. */
+
 set_time_limit(300);
+
+/* That's all, stop editing! Happy publishing. */
 ```
 
 Please open an issue on GitHub with as much information as possible if you found a bug.
