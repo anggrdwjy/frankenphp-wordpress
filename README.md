@@ -20,6 +20,19 @@ chmod -R 777 *
 ./frankenphp-wp.sh
 ```
 
+## Configuration wp-config.php (Optional)
+Information Database
+```
+define('DB_NAME', 'wordpress');
+define('DB_USER', 'wp-user');
+define('DB_PASSWORD', 'wp-pass');
+define('DB_HOST', '127.0.0.1');
+```
+Auto update without FTP 
+```
+define( 'FS_METHOD', 'direct' );
+```
+
 ## Support
 
 * [:octocat: Follow me on GitHub](https://github.com/anggrdwjy)
