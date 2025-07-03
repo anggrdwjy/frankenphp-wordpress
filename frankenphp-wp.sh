@@ -42,12 +42,12 @@ mysql -uroot -p$passwordmysql -e "CREATE DATABASE $databasename;"
 #
 #======== Configure Caddyfile ========#
 mkdir /etc/caddy
-cp support/Caddyfile /etc/caddy/
+cp support/Caddyfile /etc/caddy/Caddyfile
 chown -R root:root /etc/caddy
 #
 #
 #======== Configure FrankenPHP Service ========#
-cp support/frankenphp.service /etc/systemd/system/
+cp support/frankenphp.service /etc/systemd/system/frankenphp.service
 systemctl daemon-reload
 systemctl enable --now frankenphp
 systemctl restart frankenphp.service
