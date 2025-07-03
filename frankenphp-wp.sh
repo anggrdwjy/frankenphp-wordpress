@@ -13,6 +13,7 @@ wget -c https://go.dev/dl/go1.24.4.linux-amd64.tar.gz
 tar -C /usr/local -xzf go1.24.4.linux-amd64.tar.gz
 echo "export PATH=$PATH:/usr/local/go/bin" >> ~/.bashrc
 source ~/.bashrc
+rm go1.24.4.linux-amd64.tar.gz
 #
 #
 #======== Install FrankenPHP ========#
@@ -25,25 +26,30 @@ mkdir /home/www
 cd /home/www
 wget https://wordpress.org/latest.zip
 unzip latest.zip
+rm latest.zip
 mv wordpress html
 chown -R root:root /home/www
 #
 #
 #======== Install and Configure MYSQL Server ========#
 apt install mysql-server -y
-echo "   ______________________________________________   ";
+echo "   ==============================================   ";
+echo "                SETUP DATABASE MYSQL                ";
+echo "   ==============================================   ";
 echo "                                                    ";
-echo -n "Create Your Password Database : "
+echo -n "Create Username MYSQL : "
+read usernamemysql
+echo -n "Create Password MYSQL : "
 read passwordmysql
-echo "   ______________________________________________   ";
-echo "                                                    ";
 echo -n "Create Database For Wordpress : "
 read databasename
-echo "   ______________________________________________   ";
 echo "                                                    ";
-mysql -e "ALTER USER 'root'@'localhost' IDENTIFIED WITH mysql_native_password BY '$passwordmysql';"
-mysql -uroot -p$passwordmysql -e "GRANT ALL PRIVILEGES ON root.* TO 'root'@'localhost';"
-mysql -uroot -p$passwordmysql -e "CREATE DATABASE $databasename;"
+echo "   ==============================================   ";
+echo "                                                    ";
+mysql -e "ALTER USER '$usernamemysql'@'localhost' IDENTIFIED WITH mysql_native_password BY '$passwordmysql';"
+mysql -u$usernamemysql -p$passwordmysql -e "GRANT ALL PRIVILEGES ON $usernamemysql.* TO '$usernamemysql'@'localhost';"
+mysql -u$usernamemysql -p$passwordmysql -e "CREATE DATABASE $databasename;"
+echo "   ==============================================   ";
 #
 #
 #======== Configure Caddyfile ========#
