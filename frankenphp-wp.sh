@@ -6,6 +6,10 @@
 #======== Update Repository & Package =======#
 apt update && upgrade -y
 apt install curl unzip htop -y
+mkdir /home/www
+chown -R root:root /home/www
+mkdir /etc/caddy
+chown -R root:root /etc/caddy
 #
 #
 #======== Install Go Languange ========#
@@ -22,13 +26,11 @@ mv frankenphp /usr/local/bin/
 #
 #
 #======== Install Wordpress Lastest Update ========#
-mkdir /home/www
 cd /home/www
 wget https://wordpress.org/latest.zip
 unzip latest.zip
 rm latest.zip
 mv wordpress html
-chown -R root:root /home/www
 #
 #
 #======== Install and Configure MYSQL Server ========#
@@ -55,9 +57,7 @@ echo "   ==============================================   ";
 #
 #
 #======== Configure Caddyfile ========#
-mkdir /etc/caddy
 cp support/caddyfile.txt /etc/caddy/Caddyfile
-chown -R root:root /etc/caddy
 #
 #
 #======== Configure FrankenPHP Service ========#
