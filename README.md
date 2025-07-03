@@ -30,6 +30,8 @@ define('DB_HOST', '127.0.0.1');
 ```
 Auto update without FTP 
 ```
+/** Sets up 'direct' method for wordpress, auto update without ftp */
+
 define( 'FS_METHOD', 'direct' );
 ```
 
