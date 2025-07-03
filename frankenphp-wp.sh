@@ -23,16 +23,15 @@ mv frankenphp /usr/local/bin/
 #
 #======== Install Wordpress Lastest Update ========#
 mkdir /home/www
-chmod -R /home/www
-chown -R root:root /home/www
 cd /home/www
 wget https://wordpress.org/latest.zip
 unzip latest.zip
 rm latest.zip
 mv wordpress html
+chown -R root:root /home/www
 #
 #
-#======== Install and Configure MYSQL Server ========#
+#======== Configure MYSQL Server ========#
 apt install mysql-server -y
 echo "   ==============================================   ";
 echo "                SETUP DATABASE MYSQL                ";
@@ -57,13 +56,14 @@ echo "   ==============================================   ";
 #
 #======== Configure Caddyfile ========#
 mkdir /etc/caddy
-chmod -R /etc/caddy
+touch /etc/caddy/Caddyfile
+cp support/Caddyfile /etc/caddy/Caddyfile
 chown -R root:root /etc/caddy
-mv support/Caddyfile /etc/caddy/
 #
 #
 #======== Configure FrankenPHP Service ========#
-mv support/frankenphp.service /etc/systemd/system/
+touch /etc/systemd/system/frankenphp.service
+cp support/frankenphp.service /etc/systemd/system/frankenphp.service
 systemctl daemon-reload
 systemctl enable --now frankenphp
 systemctl restart frankenphp.service
