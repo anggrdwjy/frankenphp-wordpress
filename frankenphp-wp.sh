@@ -31,10 +31,16 @@ chown -R root:root /home/www
 #
 #======== Install and Configure MYSQL Server ========#
 apt install mysql-server -y
+echo "   ______________________________________________   ";
+echo "                                                    ";
 echo -n "Create Your Password Database : "
 read passwordmysql
+echo "   ______________________________________________   ";
+echo "                                                    ";
 echo -n "Create Database For Wordpress : "
 read databasename
+echo "   ______________________________________________   ";
+echo "                                                    ";
 mysql -e "ALTER USER 'root'@'localhost' IDENTIFIED WITH mysql_native_password BY '$passwordmysql';"
 mysql -uroot -p$passwordmysql -e "GRANT ALL PRIVILEGES ON root.* TO 'root'@'localhost';"
 mysql -uroot -p$passwordmysql -e "CREATE DATABASE $databasename;"
