@@ -28,14 +28,12 @@ chmod -R 777 *
 
 ## Bugs Fix
 
-1. Installing Theme Failed
-   
-Add Set Time Limit on wp-config.php
+Installing Theme Failed, Add Set Time Limit on wp-config.php
 ```
 set_time_limit(300);
 ```
 
-2. Please open an issue on GitHub with as much information as possible if you found a bug.
+Please open an issue on GitHub with as much information as possible if you found a bug.
 * Your operating system / Linux distribution
 * All the logs and message outputted
 * etc
