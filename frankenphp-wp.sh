@@ -8,7 +8,7 @@ apt update && upgrade -y
 apt install curl unzip htop mysql-server -y
 mkdir /home/www
 chown -R root:root /home/www
-mkdir /etc/caddy
+mkdir /etc/caddy/
 touch /etc/caddy/Caddyfile
 chmod -R 777 /etc/caddy/
 cp support/Caddyfile /etc/caddy/
