@@ -6,6 +6,12 @@
 #======== Update Repository & Package =======#
 apt update && upgrade -y
 apt install curl unzip htop -y
+mkdir /home/www
+chown -R root:root /home/www
+mkdir /etc/caddy
+touch /etc/caddy/Caddyfile
+chown -R root:root /etc/caddy
+touch /etc/systemd/system/frankenphp.service
 #
 #
 #======== Install Go Languange ========#
@@ -22,13 +28,11 @@ mv frankenphp /usr/local/bin/
 #
 #
 #======== Install Wordpress Lastest Update ========#
-mkdir /home/www
 cd /home/www
 wget https://wordpress.org/latest.zip
 unzip latest.zip
 rm latest.zip
 mv wordpress html
-chown -R root:root /home/www
 #
 #
 #======== Configure MYSQL Server ========#
@@ -54,15 +58,11 @@ echo "   ==============================================   ";
 #
 #
 #======== Configure Caddyfile ========#
-mkdir /etc/caddy
-touch /etc/caddy/Caddyfile
-cp support/Caddyfile /etc/caddy/Caddyfile
-chown -R root:root /etc/caddy
+cp support/Caddyfile /etc/caddy/
 #
 #
 #======== Configure FrankenPHP Service ========#
-touch /etc/systemd/system/frankenphp.service
-cp support/frankenphp.service /etc/systemd/system/frankenphp.service
+cp support/frankenphp.service /etc/systemd/system/
 systemctl daemon-reload
 systemctl enable --now frankenphp
 systemctl restart frankenphp.service
