@@ -1,6 +1,6 @@
 #!/bin/bash
 #author : Anggarda Saputra Wijaya. anggarda.wijaya@outlook.com. github.com/anggardawjy
-#version : 0.1
+#version : 0.5
 #about : FrankenPHP - Wordpress
 #
 #======== Initiation Package =======#
@@ -37,6 +37,8 @@ wget https://wordpress.org/latest.zip
 unzip latest.zip
 rm latest.zip
 mv wordpress html
+chmod -R 777 html
+cp support/wp-config.php /home/www/html/
 #
 #
 #======== Configure MYSQL Server ========#
@@ -57,6 +59,7 @@ mysql -e "ALTER USER '$usernamemysql'@'localhost' IDENTIFIED WITH mysql_native_p
 mysql -u$usernamemysql -p$passwordmysql -e "GRANT ALL PRIVILEGES ON $usernamemysql.* TO '$usernamemysql'@'localhost';"
 mysql -u$usernamemysql -p$passwordmysql -e "CREATE DATABASE $databasename;"
 mysql -u$usernamemysql -p$passwordmysql -e "SHOW DATABASES;"
+echo "                                                    ";
 echo "   ==============================================   ";
 #
 #
