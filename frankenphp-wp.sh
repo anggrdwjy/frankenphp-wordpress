@@ -38,7 +38,6 @@ unzip latest.zip
 rm latest.zip
 mv wordpress html
 chmod -R 777 html
-cp support/wp-config.php /home/www/html/
 #
 #
 #======== Configure MYSQL Server ========#
