@@ -13,8 +13,8 @@ touch /etc/caddy/Caddyfile
 touch /etc/systemd/system/frankenphp.service
 chown -R root:root /home/www
 chown -R root:root /etc/caddy
-chmod -R 777 /etc/caddy/
-chmod -R 777 /etc/systemd/system/
+chmod -R 755 /etc/caddy/
+chmod -R 755 /etc/systemd/system/
 cp support/Caddyfile /etc/caddy/
 cp support/frankenphp.service /etc/systemd/system/
 #
@@ -36,7 +36,7 @@ wget https://wordpress.org/latest.zip
 unzip latest.zip
 rm latest.zip
 mv wordpress html
-chmod -R 777 html
+chmod -R 755 html
 mv /home/www/html/wp-config.php /home/wp-config.bak
 cp support/wp-config.php /home/www/html/
 #
