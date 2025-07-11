@@ -4,7 +4,6 @@
 #about : FrankenPHP - Wordpress
 #
 #======== Initiation Package =======#
-apt update -y
 apt install software-properties-common -y
 apt update -y
 apt install curl unzip htop mysql-server -y
