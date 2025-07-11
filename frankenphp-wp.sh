@@ -45,11 +45,13 @@ echo "   ==============================================   ";
 echo "                SETUP DATABASE MYSQL                ";
 echo "   ==============================================   ";
 echo "                                                    ";
-echo -n "Create Username MYSQL : "
+echo -n "Create Username MYSQL (Default Root) : "
 read usernamemysql
-echo -n "Create Password MYSQL : "
+echo "                                                    ";
+echo -n "Create Password MYSQL                : "
 read passwordmysql
-echo -n "Create Database For Wordpress : "
+echo "                                                    ";
+echo -n "Create Database For Wordpress        : "
 read databasename
 echo "                                                    ";
 echo "   ==============================================   ";
