@@ -40,7 +40,7 @@ rm latest.zip
 mv wordpress html
 chmod -R 777 html
 cp /home/www/html/wp-config.php /home/wp-config.bak
-mv support/wp-config.php /home/www/html/wp-config.php
+mv support/wp-config.php /home/www/html/
 #
 #
 #======== Configure MYSQL Server ========#
