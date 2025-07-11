@@ -8,22 +8,20 @@ apt install software-properties-common -y
 apt update -y
 apt install curl unzip htop mysql-server -y
 mkdir /home/www
-chown -R root:root /home/www
 mkdir /etc/caddy/
 touch /etc/caddy/Caddyfile
-chmod -R 777 /etc/caddy/
-cp support/Caddyfile /etc/caddy/
-chown -R root:root /etc/caddy
 touch /etc/systemd/system/frankenphp.service
+chown -R root:root /home/www
+chown -R root:root /etc/caddy
+chmod -R 777 /etc/caddy/
 chmod -R 777 /etc/systemd/system/
+cp support/Caddyfile /etc/caddy/
 cp support/frankenphp.service /etc/systemd/system/
 #
 #
 #======== Install Go Languange ========#
-wget -c https://go.dev/dl/go1.24.4.linux-amd64.tar.gz
-tar -C /usr/local -xzf go1.24.4.linux-amd64.tar.gz
-echo "export PATH=$PATH:/usr/local/go/bin" >> ~/.bashrc
-source ~/.bashrc
+wget -c https://go.dev/dl/go1.24.4.linux-amd64.tar.gz | tar -C /usr/local -xzf go1.24.4.linux-amd64.tar.gz
+echo "export PATH=$PATH:/usr/local/go/bin" >> ~/.bashrc | source ~/.bashrc
 rm go1.24.4.linux-amd64.tar.gz
 #
 #
@@ -39,8 +37,8 @@ unzip latest.zip
 rm latest.zip
 mv wordpress html
 chmod -R 777 html
-cp /home/www/html/wp-config.php /home/wp-config.bak
-mv support/wp-config.php /home/www/html/
+mv /home/www/html/wp-config.php /home/wp-config.bak
+cp support/wp-config.php /home/www/html/
 #
 #
 #======== Configure MYSQL Server ========#
